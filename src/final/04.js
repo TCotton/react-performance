@@ -17,15 +17,15 @@ const getVirtualRowStyles = ({size, start}) => ({
 })
 
 function Menu({
-  items,
-  getMenuProps,
-  getItemProps,
-  highlightedIndex,
-  selectedItem,
-  listRef,
-  virtualRows,
-  totalHeight,
-}) {
+                items,
+                getMenuProps,
+                getItemProps,
+                highlightedIndex,
+                selectedItem,
+                listRef,
+                virtualRows,
+                totalHeight,
+              }) {
   return (
     <ul {...getMenuProps({ref: listRef})}>
       <li style={{height: totalHeight}} />
@@ -51,14 +51,14 @@ function Menu({
 }
 
 function ListItem({
-  getItemProps,
-  item,
-  index,
-  isHighlighted,
-  isSelected,
-  style,
-  ...props
-}) {
+                    getItemProps,
+                    item,
+                    index,
+                    isHighlighted,
+                    isSelected,
+                    style,
+                    ...props
+                  }) {
   return (
     <li
       {...getItemProps({
@@ -113,19 +113,20 @@ function App() {
           : 'Selection Cleared',
       ),
     itemToString: item => (item ? item.name : ''),
-    scrollIntoView: () => {},
+    scrollIntoView: () => {
+    },
     onHighlightedIndexChange: ({highlightedIndex}) =>
       highlightedIndex !== -1 && rowVirtualizer.scrollToIndex(highlightedIndex),
   })
 
   return (
-    <div className="city-app">
+    <div className='city-app'>
       <button onClick={forceRerender}>force rerender</button>
       <div>
         <label {...getLabelProps()}>Find a city</label>
         <div {...getComboboxProps()}>
           <input {...getInputProps({type: 'text'})} />
-          <button onClick={() => selectItem(null)} aria-label="toggle menu">
+          <button onClick={() => selectItem(null)} aria-label='toggle menu'>
             &#10005;
           </button>
         </div>
